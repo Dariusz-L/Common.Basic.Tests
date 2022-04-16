@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Common.Basic.Tests
 {
-    public class TimedCounterTests
+    internal class TimedCounterTests
     {
         [Test]
         public void GivenTimedCounter_WhenReachCountIsOneIntervalResetTimeNotPassed_ThenShouldReachCount()
