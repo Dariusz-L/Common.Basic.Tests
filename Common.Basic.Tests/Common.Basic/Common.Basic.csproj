@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<DefaultItemExcludes>$(DefaultItemExcludes);Common.Basic\**\*.meta</DefaultItemExcludes>
+	<DefaultItemExcludes>$(DefaultItemExcludes);Common.Basic\**\*.asmdef</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

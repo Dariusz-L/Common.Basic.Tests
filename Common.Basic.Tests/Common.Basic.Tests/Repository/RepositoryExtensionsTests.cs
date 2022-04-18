@@ -3,6 +3,7 @@ using Common.Basic.Repository;
 using Common.Basic.Threading;
 using NSubstitute;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace Common.Basic.Tests
 {
@@ -42,7 +43,7 @@ namespace Common.Basic.Tests
         }
 
         [Test]
-        public void GivenAnyRepository_WhenGetIsSuccessAndObjectNotFound_ThenNewSaved()
+        public async Task GivenAnyRepository_WhenGetIsSuccessAndObjectNotFound_ThenNewSaved()
         {
             // Arrange
             var repository = Substitute.For<IRepository<object>>();
@@ -50,10 +51,10 @@ namespace Common.Basic.Tests
             repository.Save(Object).Returns(Result.SuccessTask());
 
             // Act
-            repository.GetIfExistsOrCreateAndSave(ID, () => Object).GetAwaiterResult();
+            await repository.GetIfExistsOrCreateAndSave(ID, () => Object);
 
             // Assert
-            repository.Received().Save(Object);
+            await repository.Received().Save(Object);
         }
     }
 }
